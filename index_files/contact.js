@@ -6,7 +6,6 @@ $(function() {
         e.preventDefault();
         var name = $("#contact-name").val();
         var from = $("#contact-email").val();
-        var email = $("#contact-fullname").val();
         var message = $("#contact-message").val();
         if (name && from && message) {
             var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
@@ -17,12 +16,10 @@ $(function() {
                 ajax_data = {
                     type: "POST",
                     url: apiUrl + "/email.php",
-                    contentType: "application/json",
                     data: {
                         from: from,
                         name: name,
-                        message: message,
-                        email: email
+                        message: message
                     }
                 };
                 ajax_data.success = function(data) {
@@ -36,7 +33,7 @@ $(function() {
                     $("#contact-success").hide();
                     $("#contact-error").show();
                 };
-                ajax_data.data = JSON.stringify(ajax_data.data);
+                //ajax_data.data = JSON.stringify(ajax_data.data);
                 $.ajax(ajax_data);
             } else {
                 $("#contact-error").show();
