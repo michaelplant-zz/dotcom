@@ -23,15 +23,17 @@ $(function() {
                     }
                 };
                 ajax_data.success = function(data) {
+                    var response = JSON.parse(data);
                     $("#contact-name").val("");
                     $("#contact-email").val("");
                     $("#contact-message").val("");
-                    $("#contact-success").show();
+                    $("#contact-success").text(response.text).show();
                     $("#contact-error").hide();
                 };
                 ajax_data.error = function(data) {
+                    var response = JSON.parse(data);
                     $("#contact-success").hide();
-                    $("#contact-error").show();
+                    $("#contact-error").text(response.text).show();
                 };
                 //ajax_data.data = JSON.stringify(ajax_data.data);
                 $.ajax(ajax_data);
