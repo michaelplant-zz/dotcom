@@ -107,6 +107,7 @@ body {
     margin: 2em auto;
     text-align: justify;
     overflow: auto;
+    background: url(../img/bg-scroll.gif) no-repeat center 0;
 }
 .callouts .donate {
     float: left;
@@ -119,6 +120,11 @@ body {
     width: 125px;
     margin-left: 2%;
     margin-right: 6%;
+}
+.callouts p {
+  clear: both;
+  text-align: center;
+  padding: 2em 0 0;
 }
 .cta {
   background: url(../img/bg-cta.gif) no-repeat center;
@@ -135,11 +141,12 @@ body {
 .help {
   clear: both;
   float: left;
-  width: 500px;
+  width: 505px;
   text-align: right;
 }
 .help p {
   line-height: 1.5;
+  padding-left: 5em;
 }
 .race {
   margin-top: 4em;
@@ -216,12 +223,28 @@ strong {
   font-size: 32px;
   color: white;
 }
+.mobile {
+  display: none;
+}
+.desktop {
+  display: block;
+}
 
 @media (max-width: 1079px) {
+  .mobile {
+    display: block;
+  }
+  .desktop {
+    display: none;
+  }
   .container, .callouts {
     min-width: 320px;
     max-width: 960px;
     width: 100%;
+    background: none;
+  }
+  .callouts p {
+    padding: 0;
   }
   .three-ws {
     text-align: center;
@@ -243,6 +266,9 @@ strong {
   }
   .help, .race {
     width: 60%;
+  }
+  .help p {
+    padding-left: 0;
   }
   .footer .sponsors img {
     width: 30%;
